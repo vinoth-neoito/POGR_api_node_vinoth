@@ -21,6 +21,17 @@ class UserController {
 			res.status(500).json({ message: error.message });
 		}
 	};
+
+	getUserGamesProfile = async (req, res) => {
+		const userId = req.params.userId;
+		const gameId = req.params.gameId;
+		try {
+			const getGameProfile=await gameService.getUserGameProfile(userId,gameId);
+			res.status(200).json({ data: getGameProfile });
+		} catch (error) {
+			res.status(500).json({ message: error.message });
+		}
+	};
 }
 
 export default UserController;

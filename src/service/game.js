@@ -1,4 +1,5 @@
 import { getGames, getUsersGames } from "../dataAccess/gameData.js";
+import { getGameMatchDetail } from "../dataAccess/gameMatchDetailsData.js";
 import { getUserById } from "../dataAccess/userData.js";
 
 class GameService {
@@ -21,6 +22,16 @@ class GameService {
       games:game
     }
     return result;
+  };
+  getUserGameProfile = async (userId, gameId) => {
+    const arg = {
+      user:userId
+    }
+    const populateArgs = ['user','game','gameMatch'];
+    //let user = await getUserById(userId)
+    const gameMatchDetails = await getGameMatchDetail(arg, populateArgs);
+    
+    return gameMatchDetails;
 	};
 }
 

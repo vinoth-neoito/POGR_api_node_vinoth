@@ -6,6 +6,7 @@ const userRouter = exppress.Router();
 const userController = new UserController();
 
 userRouter.get("/",userMiddleware, userController.getUsers);
-userRouter.get("/:userId/games",userMiddleware, userController.getUserGames);
+userRouter.get("/:userId/games", userMiddleware, userController.getUserGames);
+userRouter.get("/:userId/games/:gameId/profile",userMiddleware, userController.getUserGamesProfile);
 
 export default userRouter;
