@@ -12,6 +12,15 @@ class UserController {
 			res.status(500).json({ message: error.message });
 		}
 	};
+	getUser = async (req, res) => {
+		const userId = req.params.userId;
+		try {
+			const getUser = await userService.getUserById(userId);
+			res.status(200).json({ data: getUser });
+		} catch (error) {
+			res.status(500).json({ message: error.message });
+		}
+	};
 	getUserGames = async (req, res) => {
 		const userId = req.params.userId;
 		try {
