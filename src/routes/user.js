@@ -1,11 +1,11 @@
 import exppress from "express";
-import User from "../models/user.js";
 import UserController from "../controller/user.js";
+import userMiddleware from "../middleware/userMiddleware.js";
 
 const userRouter = exppress.Router();
 const userController = new UserController();
 
-userRouter.get("/", userController.getUsers);
-userRouter.get("/:userId/games", userController.getUserGames);
+userRouter.get("/",userMiddleware, userController.getUsers);
+userRouter.get("/:userId/games",userMiddleware, userController.getUserGames);
 
 export default userRouter;

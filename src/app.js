@@ -8,7 +8,6 @@ import router from "./routes/index.js";
 const app = express();
 
 dotenv.config();
-console.log(process.env.DATABASE_URL)
 mongoose.connect(process.env.DATABASE_URL,{ useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on("error", () => [console.log("unable to connect db")]);
@@ -17,6 +16,7 @@ db.once("open", () => {
 });
 
 app.use(express.json());
+
 app.use('/', router)
 
 
