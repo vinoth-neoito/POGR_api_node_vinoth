@@ -7,6 +7,6 @@ const gameRouter = exppress.Router();
 
 gameRouter.get("/", gameController.getGames);
 
-gameRouter.post("/:gameId", gameController.getGameById);
+gameRouter.post("/:gameId", gameController.getGameById); 
 
 export default gameRouter;
