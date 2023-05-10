@@ -8,6 +8,10 @@ const gameStatics = new mongoose.Schema({
 	game: {
 		type: Schema.Types.ObjectId,
 		ref: "Game",
+	},
+	user: {
+		type: Schema.Types.ObjectId,
+		ref: "User",
   },
 	date: {
 		type: Date,
