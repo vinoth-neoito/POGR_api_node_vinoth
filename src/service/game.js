@@ -1,5 +1,6 @@
+import { getGameAchivements } from "../dataAccess/gameAchivements.js";
 import { getGames, getUsersGames } from "../dataAccess/gameData.js";
-import { getGameMatchDetail } from "../dataAccess/gameMatchDetailsData.js";
+import { getGameStatic } from "../dataAccess/gameStatics.js";
 import { getUserById } from "../dataAccess/userData.js";
 
 class GameService {
@@ -22,11 +23,22 @@ class GameService {
 			user: userId,
 			game: gameId,
 		};
-		const populateArgs = ["user", "game", "gameMatch"];
+		const populateArgs = ["game"];
 		//let user = await getUserById(userId)
-		const gameMatchDetails = await getGameMatchDetail(arg, populateArgs);
+		const gameStatics = await getGameStatic(arg, populateArgs);
 
-		return gameMatchDetails;
+		return gameStatics;
+	};
+
+	getUserGameAchivements = async (userId, gameId) => {
+		const arg = {
+			user: userId,
+			game: gameId,
+		};
+		const populateArgs = ["game"];
+		const gameAchivements = await getGameAchivements(arg, populateArgs);
+
+		return gameAchivements;
 	};
 }
 
