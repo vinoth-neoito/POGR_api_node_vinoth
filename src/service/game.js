@@ -13,7 +13,7 @@ class GameService {
 		const arg = {
 			user: userId,
 		};
-		const populateArgs = [];
+		const populateArgs = ['game'];
 		const game = await getUsersGames(arg, populateArgs);
 
 		return game;
