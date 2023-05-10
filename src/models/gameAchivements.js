@@ -20,6 +20,10 @@ const gameAchivements = new mongoose.Schema({
 		type: Schema.Types.ObjectId,
 		ref: "Game",
   },
+  user: {
+		type: Schema.Types.ObjectId,
+		ref: "User",
+  },
 	date: {
 		type: Date,
 		default: Date.now,

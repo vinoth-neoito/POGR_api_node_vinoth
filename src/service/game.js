@@ -1,5 +1,5 @@
 import { getGameAchivements } from "../dataAccess/gameAchivements.js";
-import { getGames, getUsersGames } from "../dataAccess/gameData.js";
+import { getUsersGames } from "../dataAccess/gameData.js";
 import { getGameStatic } from "../dataAccess/gameStatics.js";
 import { getUserById } from "../dataAccess/userData.js";
 
